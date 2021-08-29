@@ -115,3 +115,16 @@
 2021-08-29 12:56:03 [WARN] - [Sub][0] Reconnecting after 15 seconds later
 2021-08-29 12:56:19 [INFO] - [Sub][0] Connecting...
 2021-08-29 12:56:19 [INFO] - [Sub][0] Connected to server
+2021-08-29 21:18:27 [INFO] - [Sub] Connection [id: 0] created for ***Aggregate Trade for btcusdt***
+2021-08-29 21:18:27 [INFO] - [Sub][0] Connecting...
+2021-08-29 21:18:29 [INFO] - [Sub][0] Connected to server
+2021-08-29 21:38:56 [WARN] - [Sub][0] No response from server
+2021-08-29 21:38:56 [WARN] - [Sub][0] Reconnecting after 15 seconds later
+2021-08-29 21:38:56 [ERROR] - [Sub][0] Unexpected error: Socket closed
+2021-08-29 21:39:12 [INFO] - [Sub][0] Connecting...
+2021-08-29 21:39:12 [INFO] - [Sub][0] Connected to server
+2021-08-29 21:44:24 [WARN] - [Sub][0] No response from server
+2021-08-29 21:44:24 [WARN] - [Sub][0] Reconnecting after 15 seconds later
+2021-08-29 21:44:24 [ERROR] - [Sub][0] Unexpected error: Socket closed
+2021-08-29 21:44:40 [INFO] - [Sub][0] Connecting...
+2021-08-29 21:44:40 [INFO] - [Sub][0] Connected to server
