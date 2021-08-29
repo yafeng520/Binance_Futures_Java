@@ -1,0 +1,18 @@
+2021-08-28 12:42:56 [INFO] - [Sub] Connection [id: 0] created for ***Aggregate Trade for btcusdt***
+2021-08-28 12:42:56 [INFO] - [Sub][0] Connecting...
+2021-08-28 12:43:22 [INFO] - [Sub][0] Connected to server
+2021-08-28 12:43:22 [INFO] - [Sub][0] Closing normally
+2021-08-28 12:43:22 [ERROR] - [Sub][0] Unexpected error: Socket closed
+2021-08-28 12:44:20 [INFO] - [Sub] Connection [id: 0] created for ***Aggregate Trade for btcusdt***
+2021-08-28 12:44:20 [INFO] - [Sub][0] Connecting...
+2021-08-28 12:44:21 [INFO] - [Sub][0] Connected to server
+2021-08-28 12:44:22 [INFO] - [Sub][0] Closing normally
+2021-08-28 12:44:22 [ERROR] - [Sub][0] Unexpected error: Socket closed
+2021-08-28 12:49:54 [INFO] - [Sub] Connection [id: 0] created for ***Aggregate Trade for btcusdt***
+2021-08-28 12:49:54 [INFO] - [Sub][0] Connecting...
+2021-08-28 12:49:55 [INFO] - [Sub][0] Connected to server
+2021-08-28 12:50:25 [INFO] - [Sub][0] Closing normally
+2021-08-28 12:51:43 [ERROR] - [Sub][0] Unexpected error: Socket closed
+2021-08-28 12:53:44 [INFO] - [Sub] Connection [id: 0] created for ***Aggregate Trade for btcusdt***
+2021-08-28 12:53:44 [INFO] - [Sub][0] Connecting...
+2021-08-28 12:53:45 [INFO] - [Sub][0] Connected to server
