@@ -1,5 +1,6 @@
 package com.binance.client.examples.websocket;
 
+import com.alibaba.fastjson.JSONObject;
 import com.binance.client.SubscriptionClient;
 
 public class SubscribeSymbolTicker {
@@ -9,8 +10,7 @@ public class SubscribeSymbolTicker {
         SubscriptionClient client = SubscriptionClient.create();
    
         client.subscribeSymbolTickerEvent("btcusdt", ((event) -> {
-            System.out.println(event);
-            client.unsubscribeAll();
+            System.out.println(JSONObject.toJSON(event));
         }), null);
 
     }

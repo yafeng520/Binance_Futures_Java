@@ -1,5 +1,6 @@
 package com.binance.client.examples.websocket;
 
+import com.alibaba.fastjson.JSONObject;
 import com.binance.client.SubscriptionClient;
 
 public class SubscribeDiffDepth {
@@ -8,9 +9,8 @@ public class SubscribeDiffDepth {
 
         SubscriptionClient client = SubscriptionClient.create();
    
-        client.subscribeDiffDepthEvent("btcusdt", ((event) -> {
-            System.out.println(event);
-            client.unsubscribeAll();
+        client.subscribeDiffDepthEvent("1000shibusdt", ((event) -> {
+            System.out.println(JSONObject.toJSON(event));
         }), null);
 
     }

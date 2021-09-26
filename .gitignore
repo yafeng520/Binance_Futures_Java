@@ -2,4 +2,4 @@
 target
 *.iml
 src/test/java/com/binance/client/examples/constants/PrivateConfig.java
-/Users/fuyafeng/IdeaProjects/Binance_Futures_Java/tmp
+tmp

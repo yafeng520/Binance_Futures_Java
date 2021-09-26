@@ -1,5 +1,6 @@
 package com.binance.client.examples.market;
 
+import com.alibaba.fastjson.JSONObject;
 import com.binance.client.RequestOptions;
 import com.binance.client.SyncRequestClient;
 
@@ -10,6 +11,7 @@ public class GetOrderBook {
         RequestOptions options = new RequestOptions();
         SyncRequestClient syncRequestClient = SyncRequestClient.create(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY,
                 options);
-        System.out.println(syncRequestClient.getOrderBook("BTCUSDT", null));
+        System.out.println(JSONObject.toJSON(syncRequestClient.getOrderBook("BTCUSDT", 10)));
+
     }
 }
