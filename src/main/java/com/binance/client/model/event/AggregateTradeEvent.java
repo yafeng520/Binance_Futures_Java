@@ -3,28 +3,39 @@ package com.binance.client.model.event;
 import com.binance.client.constant.BinanceApiConstants;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
+@Table
 public class AggregateTradeEvent {
 
     private String eventType;
 
+    @Column
     private Long eventTime;
 
     private String symbol;
 
+    @Id
     private Long id;
 
+    @Column
     private BigDecimal price;
 
+    @Column
     private BigDecimal qty;
 
+    @Column
     private Long firstId;
 
+    @Column
     private Long lastId;
 
+    @Column
     private Long time;
 
+    @Column
     private Boolean isBuyerMaker;
 
     public String getEventType() {

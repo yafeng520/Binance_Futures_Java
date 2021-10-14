@@ -17,6 +17,6 @@ public class PostOrder {
         // place dual position side order.
         // Switch between dual or both position side, call: com.binance.client.examples.trade.ChangePositionSide
         System.out.println(syncRequestClient.postOrder("1000SHIBUSDT", OrderSide.BUY, PositionSide.LONG, OrderType.MARKET, null,
-                "900", null, null, null, null, null, NewOrderRespType.RESULT));
+                "9000", null, null, null, null, null, NewOrderRespType.RESULT));
     }
 }
