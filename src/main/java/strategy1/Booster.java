@@ -1,5 +1,6 @@
 package strategy1;
 
+import com.binance.client.model.trade.Order;
 import strategy1.businessEntity.HoldSide;
 import strategy1.businessEntity.Position;
 import strategy1.businessEntity.PositionStatus;
@@ -13,6 +14,7 @@ import com.binance.client.model.enums.OrderType;
 import com.binance.client.model.enums.PositionSide;
 
 import java.util.LinkedList;
+import java.util.logging.Logger;
 
 import strategy1.constants.PrivateConfig;
 
@@ -22,6 +24,9 @@ public class Booster {
     1.需要在目标币价稳定的时候运行
     2.当前账户需是空仓状态
      */
+
+    static Logger logger = Logger.getGlobal();
+
     public static void main(String[] args) {
         Analyzer analyzer = new Analyzer();
         try {
@@ -31,6 +36,9 @@ public class Booster {
             System.out.println("Analyzer初始化错误，程序已退出");
             System.exit(1);
         }
+
+        OrderRecorder orderRecorder = new OrderRecorder();
+        orderRecorder.init();
 
         final String symbol = Analyzer.symbol;
 
@@ -66,47 +74,61 @@ public class Booster {
                         if (curSideStepGrowthTotal > 0){//开始暴涨，买入做多
                             if (position == Position.HOLD && holdSide == HoldSide.SHORT){
                                 //如果反方向持仓（即开始暴涨时我的持仓是做空）了，赶紧卖
-                                syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.SHORT, OrderType.MARKET, null,
+                                Order order = syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.SHORT, OrderType.MARKET, null,
                                         quantity, null, null, null, null, null, NewOrderRespType.RESULT);
                                 positionStatus.setPosition(Position.RELEASE);
                                 analyzer.setPositionStatus(positionStatus);
+                                orderRecorder.recordOrder(order);
+                                logger.info("Posted order: "+order.toString());
                             }else if (position == Position.RELEASE){
                                 //如果是空仓状态，就买入做多
-                                syncRequestClient.postOrder(symbol, OrderSide.BUY, PositionSide.LONG, OrderType.MARKET, null,
+                                Order order = syncRequestClient.postOrder(symbol, OrderSide.BUY, PositionSide.LONG, OrderType.MARKET, null,
                                         quantity, null, null, null, null, null, NewOrderRespType.RESULT);
                                 positionStatus.setPosition(Position.HOLD);
                                 positionStatus.setHoldSide(HoldSide.LONG);
                                 analyzer.setPositionStatus(positionStatus);
+                                orderRecorder.recordOrder(order);
+                                logger.info("Posted order: "+order.toString());
                             }
                         }else if(curSideStepGrowthTotal < 0){//开始暴跌，买入做空
                             if (position == Position.HOLD && holdSide == HoldSide.LONG){
                                 //如果反方向持仓（即开始暴跌时我的持仓是做多）了，赶紧卖
-                                syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.LONG, OrderType.MARKET, null,
+                                Order order = syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.LONG, OrderType.MARKET, null,
                                         quantity, null, null, null, null, null, NewOrderRespType.RESULT);
                                 positionStatus.setPosition(Position.RELEASE);
                                 analyzer.setPositionStatus(positionStatus);
+                                orderRecorder.recordOrder(order);
+                                logger.info("Posted order: "+order.toString());
                             }else if (position == Position.RELEASE) {
                                 //如果是空仓状态，就买入做空
-                                syncRequestClient.postOrder(symbol, OrderSide.BUY, PositionSide.SHORT, OrderType.MARKET, null,
+                                Order order = syncRequestClient.postOrder(symbol, OrderSide.BUY, PositionSide.SHORT, OrderType.MARKET, null,
                                         quantity, null, null, null, null, null, NewOrderRespType.RESULT);
                                 positionStatus.setPosition(Position.HOLD);
                                 positionStatus.setHoldSide(HoldSide.SHORT);
                                 analyzer.setPositionStatus(positionStatus);
+                                orderRecorder.recordOrder(order);
+                                logger.info("Posted order: "+order.toString());
                             }
                         }
                     }
                     if (Math.abs(curSideStepGrowthTotal) < analyzer.getSellSideStepGrowthTotal()){//开始恢复平静，准备卖出
                         if (position == Position.HOLD && holdSide == HoldSide.LONG){//卖出做多
-                            syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.LONG, OrderType.MARKET, null,
+                            Order order = syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.LONG, OrderType.MARKET, null,
                                     quantity, null, null, null, null, null, NewOrderRespType.RESULT);
+                            orderRecorder.recordOrder(order);
+                            logger.info("Posted order: "+order.toString());
                         }else if (position == Position.HOLD && holdSide == HoldSide.SHORT){//卖出做空
-                            syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.SHORT, OrderType.MARKET, null,
+                            Order order = syncRequestClient.postOrder(symbol, OrderSide.SELL, PositionSide.SHORT, OrderType.MARKET, null,
                                     quantity, null, null, null, null, null, NewOrderRespType.RESULT);
+                            orderRecorder.recordOrder(order);
+                            logger.info("Posted order: "+order.toString());
                         }
                     }
                     analyzer.setPrePrice(currentPrice);
+//                    logger.info("curSideStepGrowthTotal"+curSideStepGrowthTotal);
                 }),
                 null);
 
     }
+
 }

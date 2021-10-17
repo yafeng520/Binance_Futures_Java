@@ -3,40 +3,62 @@ package com.binance.client.model.trade;
 import com.binance.client.constant.BinanceApiConstants;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
+@Entity
+@Table
 public class Order {
 
+    @Column
     private String clientOrderId;
 
+    @Column
     private BigDecimal cumQuote;
 
+    @Column
     private BigDecimal executedQty;
 
+    @Id
     private Long orderId;
 
+    @Column
     private BigDecimal origQty;
 
+    @Column
     private BigDecimal price;
 
+    @Column
     private Boolean reduceOnly;
 
+    @Column
     private String side;
 
+    @Column
     private String positionSide;
 
+    @Column
     private String status;
 
+    @Column
     private BigDecimal stopPrice;
 
+    @Column
     private String symbol;
 
+    @Column
     private String timeInForce;
 
+    @Column
     private String type;
 
+    @Column
     private Long updateTime;
 
+    @Column
     private String workingType;
 
     public String getClientOrderId() {
