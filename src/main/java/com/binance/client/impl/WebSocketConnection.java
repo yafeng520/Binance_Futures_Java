@@ -60,7 +60,7 @@ public class WebSocketConnection extends WebSocketListener {
     log.warn(
         "[Sub][" + this.connectionId + "] Reconnecting after " + delayInSecond + " seconds later");
     if (webSocket != null) {
-      webSocket.cancel();
+      webSocket.close(1000,"No response from server");
       webSocket = null;
     }
     this.delayInSecond = delayInSecond;
