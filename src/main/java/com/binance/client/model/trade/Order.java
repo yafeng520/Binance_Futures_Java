@@ -1,201 +1,202 @@
 package com.binance.client.model.trade;
 
 import com.binance.client.constant.BinanceApiConstants;
+import com.binance.client.constant.Constants;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.math.BigDecimal;
+@MappedSuperclass
+public class Order implements Serializable {
+  @Id private Long orderId;
+  @Id private String symbol;
 
-@Entity
-@Table
-public class Order {
+  /** 成交金额，即此订单总共买/卖了多少钱 */
+  @Column private BigDecimal cumQuote;
+  /** 成交量 */
+  @Column(precision = Constants.QUANTITY_PRECISION, scale = Constants.QUANTITY_SCALE)
+  private BigDecimal executedQty;
+  /** 平均成交价 */
+  @Column(precision = Constants.PRICE_PRECISION, scale = Constants.PRICE_SCALE)
+  private BigDecimal avgPrice;
+  /** 原始委托数量 */
+  @Transient private BigDecimal origQty;
 
-    @Column
-    private String clientOrderId;
+  @Transient private String clientOrderId;
+  @Transient private BigDecimal price;
+  @Transient private Boolean reduceOnly;
 
-    @Column
-    private BigDecimal cumQuote;
+  @Column private String side;
 
-    @Column
-    private BigDecimal executedQty;
+  @Column private String positionSide;
+  @Transient private String status;
+  @Transient private BigDecimal stopPrice;
 
-    @Id
-    private Long orderId;
+  @Transient private String timeInForce;
+  @Transient private String type;
+  @Column private Timestamp updateTime;
+  @Transient private String workingType;
 
-    @Column
-    private BigDecimal origQty;
+  public String getClientOrderId() {
+    return clientOrderId;
+  }
 
-    @Column
-    private BigDecimal price;
+  public void setClientOrderId(String clientOrderId) {
+    this.clientOrderId = clientOrderId;
+  }
 
-    @Column
-    private Boolean reduceOnly;
+  public BigDecimal getCumQuote() {
+    return cumQuote;
+  }
 
-    @Column
-    private String side;
+  public void setCumQuote(BigDecimal cumQuote) {
+    this.cumQuote = cumQuote;
+  }
 
-    @Column
-    private String positionSide;
+  public BigDecimal getExecutedQty() {
+    return executedQty;
+  }
 
-    @Column
-    private String status;
+  public void setExecutedQty(BigDecimal executedQty) {
+    this.executedQty = executedQty;
+  }
 
-    @Column
-    private BigDecimal stopPrice;
+  public Long getOrderId() {
+    return orderId;
+  }
 
-    @Column
-    private String symbol;
+  public void setOrderId(Long orderId) {
+    this.orderId = orderId;
+  }
 
-    @Column
-    private String timeInForce;
+  public BigDecimal getAvgPrice() {
+    return avgPrice;
+  }
 
-    @Column
-    private String type;
+  public void setAvgPrice(BigDecimal avgPrice) {
+    this.avgPrice = avgPrice;
+  }
 
-    @Column
-    private Long updateTime;
+  public BigDecimal getOrigQty() {
+    return origQty;
+  }
 
-    @Column
-    private String workingType;
+  public void setOrigQty(BigDecimal origQty) {
+    this.origQty = origQty;
+  }
 
-    public String getClientOrderId() {
-        return clientOrderId;
-    }
+  public BigDecimal getPrice() {
+    return price;
+  }
 
-    public void setClientOrderId(String clientOrderId) {
-        this.clientOrderId = clientOrderId;
-    }
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
 
-    public BigDecimal getCumQuote() {
-        return cumQuote;
-    }
+  public Boolean getReduceOnly() {
+    return reduceOnly;
+  }
 
-    public void setCumQuote(BigDecimal cumQuote) {
-        this.cumQuote = cumQuote;
-    }
+  public void setReduceOnly(Boolean reduceOnly) {
+    this.reduceOnly = reduceOnly;
+  }
 
-    public BigDecimal getExecutedQty() {
-        return executedQty;
-    }
+  public String getSide() {
+    return side;
+  }
 
-    public void setExecutedQty(BigDecimal executedQty) {
-        this.executedQty = executedQty;
-    }
+  public void setSide(String side) {
+    this.side = side;
+  }
 
-    public Long getOrderId() {
-        return orderId;
-    }
+  public String getPositionSide() {
+    return positionSide;
+  }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
+  public void setPositionSide(String positionSide) {
+    this.positionSide = positionSide;
+  }
 
-    public BigDecimal getOrigQty() {
-        return origQty;
-    }
+  public String getStatus() {
+    return status;
+  }
 
-    public void setOrigQty(BigDecimal origQty) {
-        this.origQty = origQty;
-    }
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+  public BigDecimal getStopPrice() {
+    return stopPrice;
+  }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+  public void setStopPrice(BigDecimal stopPrice) {
+    this.stopPrice = stopPrice;
+  }
 
-    public Boolean getReduceOnly() {
-        return reduceOnly;
-    }
+  public String getSymbol() {
+    return symbol;
+  }
 
-    public void setReduceOnly(Boolean reduceOnly) {
-        this.reduceOnly = reduceOnly;
-    }
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
 
-    public String getSide() {
-        return side;
-    }
+  public String getTimeInForce() {
+    return timeInForce;
+  }
 
-    public void setSide(String side) {
-        this.side = side;
-    }
+  public void setTimeInForce(String timeInForce) {
+    this.timeInForce = timeInForce;
+  }
 
-    public String getPositionSide() {
-        return positionSide;
-    }
+  public String getType() {
+    return type;
+  }
 
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
-    }
+  public void setType(String type) {
+    this.type = type;
+  }
 
-    public String getStatus() {
-        return status;
-    }
+  public Timestamp getUpdateTime() {
+    return updateTime;
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  public void setUpdateTime(Timestamp updateTime) {
+    this.updateTime = updateTime;
+  }
 
-    public BigDecimal getStopPrice() {
-        return stopPrice;
-    }
+  public String getWorkingType() {
+    return workingType;
+  }
 
-    public void setStopPrice(BigDecimal stopPrice) {
-        this.stopPrice = stopPrice;
-    }
+  public void setWorkingType(String workingType) {
+    this.workingType = workingType;
+  }
 
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public String getTimeInForce() {
-        return timeInForce;
-    }
-
-    public void setTimeInForce(String timeInForce) {
-        this.timeInForce = timeInForce;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Long getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getWorkingType() {
-        return workingType;
-    }
-
-    public void setWorkingType(String workingType) {
-        this.workingType = workingType;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-                .append("clientOrderId", clientOrderId).append("cumQuote", cumQuote).append("executedQty", executedQty)
-                .append("orderId", orderId).append("origQty", origQty).append("price", price)
-                .append("reduceOnly", reduceOnly).append("side", side).append("positionSide", positionSide).append("status", status)
-                .append("stopPrice", stopPrice).append("symbol", symbol).append("timeInForce", timeInForce)
-                .append("type", type).append("updateTime", updateTime).append("workingType", workingType).toString();
-    }
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
+        .append("clientOrderId", clientOrderId)
+        .append("cumQuote", cumQuote)
+        .append("executedQty", executedQty)
+        .append("orderId", orderId)
+        .append("origQty", origQty)
+        .append("price", price)
+        .append("reduceOnly", reduceOnly)
+        .append("side", side)
+        .append("positionSide", positionSide)
+        .append("status", status)
+        .append("stopPrice", stopPrice)
+        .append("symbol", symbol)
+        .append("timeInForce", timeInForce)
+        .append("type", type)
+        .append("updateTime", updateTime)
+        .append("workingType", workingType)
+        .toString();
+  }
 }

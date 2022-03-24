@@ -1,7 +1,6 @@
 package com.binance.client.model.enums;
 
-public enum  TransactType {
-
+public enum TransactType {
   TRADE("trade"),
   ETF("etf"),
   TRANSACT_FEE("transact-fee"),
@@ -14,17 +13,12 @@ public enum  TransactType {
   WITHDRAW("withdraw"),
   WITHDRAW_FEE("withdraw-fee"),
   EXCHANGE("exchange"),
-  OTHER_TYPES("other-types")
+  OTHER_TYPES("other-types");
 
-  ;
   private final String code;
 
   TransactType(String code) {
     this.code = code;
-  }
-
-  public String getCode() {
-    return code;
   }
 
   public static TransactType find(String code) {
@@ -36,4 +30,7 @@ public enum  TransactType {
     return null;
   }
 
+  public String getCode() {
+    return code;
+  }
 }

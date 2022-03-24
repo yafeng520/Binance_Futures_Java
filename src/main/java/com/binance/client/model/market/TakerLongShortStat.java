@@ -3,51 +3,55 @@ package com.binance.client.model.market;
 import java.math.BigDecimal;
 
 public class TakerLongShortStat {
-    
-    private BigDecimal buySellRatio;
-    private BigDecimal sellVol;
-    private BigDecimal buyVol;
-    private Long timestamp;
 
-    public BigDecimal getBuySellRatio() {
-        return buySellRatio;
-    }
+  private BigDecimal buySellRatio;
+  private BigDecimal sellVol;
+  private BigDecimal buyVol;
+  private Long timestamp;
 
-    public void setBuySellRatio(BigDecimal buySellRatio) {
-        this.buySellRatio = buySellRatio;
-    }
+  public BigDecimal getBuySellRatio() {
+    return buySellRatio;
+  }
 
-    public BigDecimal getSellVol() {
-        return sellVol;
-    }
+  public void setBuySellRatio(BigDecimal buySellRatio) {
+    this.buySellRatio = buySellRatio;
+  }
 
-    public void setSellVol(BigDecimal sellVol) {
-        this.sellVol = sellVol;
-    }
+  public BigDecimal getSellVol() {
+    return sellVol;
+  }
 
-    public BigDecimal getBuyVol() {
-        return buyVol;
-    }
+  public void setSellVol(BigDecimal sellVol) {
+    this.sellVol = sellVol;
+  }
 
-    public void setBuyVol(BigDecimal buyVol) {
-        this.buyVol = buyVol;
-    }
+  public BigDecimal getBuyVol() {
+    return buyVol;
+  }
 
-    public Long getTimestamp() {
-        return timestamp;
-    }
+  public void setBuyVol(BigDecimal buyVol) {
+    this.buyVol = buyVol;
+  }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
+  public Long getTimestamp() {
+    return timestamp;
+  }
 
-    @Override
-    public String toString() {
-        return "TakerLongShortStat{" +
-                "buySellRatio=" + buySellRatio +
-                ", sellVol=" + sellVol +
-                ", buyVol=" + buyVol +
-                ", timestamp=" + timestamp +
-                '}';
-    }
+  public void setTimestamp(Long timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  @Override
+  public String toString() {
+    return "TakerLongShortStat{"
+        + "buySellRatio="
+        + buySellRatio
+        + ", sellVol="
+        + sellVol
+        + ", buyVol="
+        + buyVol
+        + ", timestamp="
+        + timestamp
+        + '}';
+  }
 }

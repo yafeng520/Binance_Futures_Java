@@ -1,8 +1,9 @@
 package com.binance.client;
 
 /**
- * You must implement the SubscriptionListener interface. <br> The server will push any update to
- * the client. if client get the update, the onReceive method will be called.
+ * You must implement the SubscriptionListener interface. <br>
+ * The server will push any update to the client. if client get the update, the onReceive method
+ * will be called.
  *
  * @param <T> The type of received data.
  */

@@ -3,61 +3,67 @@ package com.binance.client.model.market;
 import java.math.BigDecimal;
 
 public class CommonLongShortRatio {
-    
-    private String symbol;
-    private BigDecimal longAccount;
-    private BigDecimal longShortRatio;
-    private BigDecimal shortAccount;
-    private Long timestamp;
 
-    public String getSymbol() {
-        return symbol;
-    }
+  private String symbol;
+  private BigDecimal longAccount;
+  private BigDecimal longShortRatio;
+  private BigDecimal shortAccount;
+  private Long timestamp;
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
+  public String getSymbol() {
+    return symbol;
+  }
 
-    public BigDecimal getLongAccount() {
-        return longAccount;
-    }
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
 
-    public void setLongAccount(BigDecimal longAccount) {
-        this.longAccount = longAccount;
-    }
+  public BigDecimal getLongAccount() {
+    return longAccount;
+  }
 
-    public BigDecimal getLongShortRatio() {
-        return longShortRatio;
-    }
+  public void setLongAccount(BigDecimal longAccount) {
+    this.longAccount = longAccount;
+  }
 
-    public void setLongShortRatio(BigDecimal longShortRatio) {
-        this.longShortRatio = longShortRatio;
-    }
+  public BigDecimal getLongShortRatio() {
+    return longShortRatio;
+  }
 
-    public BigDecimal getShortAccount() {
-        return shortAccount;
-    }
+  public void setLongShortRatio(BigDecimal longShortRatio) {
+    this.longShortRatio = longShortRatio;
+  }
 
-    public void setShortAccount(BigDecimal shortAccount) {
-        this.shortAccount = shortAccount;
-    }
+  public BigDecimal getShortAccount() {
+    return shortAccount;
+  }
 
-    public Long getTimestamp() {
-        return timestamp;
-    }
+  public void setShortAccount(BigDecimal shortAccount) {
+    this.shortAccount = shortAccount;
+  }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
+  public Long getTimestamp() {
+    return timestamp;
+  }
 
-    @Override
-    public String toString() {
-        return "CommonLongShortRatio{" +
-                "symbol='" + symbol + '\'' +
-                ", longAccount=" + longAccount +
-                ", longShortRatio=" + longShortRatio +
-                ", shortAccount=" + shortAccount +
-                ", timestamp=" + timestamp +
-                '}';
-    }
+  public void setTimestamp(Long timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  @Override
+  public String toString() {
+    return "CommonLongShortRatio{"
+        + "symbol='"
+        + symbol
+        + '\''
+        + ", longAccount="
+        + longAccount
+        + ", longShortRatio="
+        + longShortRatio
+        + ", shortAccount="
+        + shortAccount
+        + ", timestamp="
+        + timestamp
+        + '}';
+  }
 }

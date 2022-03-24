@@ -12,42 +12,49 @@ import org.slf4j.LoggerFactory;
 
 class WebSocketWatchDog {
 
-    private final CopyOnWriteArrayList<WebSocketConnection> TIME_HELPER = new CopyOnWriteArrayList<>();
-    private final SubscriptionOptions options;
-    private static final Logger log = LoggerFactory.getLogger(WebSocketConnection.class);
+  private static final Logger log = LoggerFactory.getLogger(WebSocketConnection.class);
+  private final CopyOnWriteArrayList<WebSocketConnection> TIME_HELPER =
+      new CopyOnWriteArrayList<>();
+  private final SubscriptionOptions options;
 
-    WebSocketWatchDog(SubscriptionOptions subscriptionOptions) {
-        this.options = Objects.requireNonNull(subscriptionOptions);
-        long t = 1_000;
-        ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
-        exec.scheduleAtFixedRate(() -> {
-            TIME_HELPER.forEach(connection -> {
+  WebSocketWatchDog(SubscriptionOptions subscriptionOptions) {
+    this.options = Objects.requireNonNull(subscriptionOptions);
+    long t = 1_000;
+    ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
+    exec.scheduleAtFixedRate(
+        () -> {
+          TIME_HELPER.forEach(
+              connection -> {
                 if (connection.getState() == ConnectionState.CONNECTED) {
-                    // Check response
-                    if (options.isAutoReconnect()) {
-                        long ts = System.currentTimeMillis() - connection.getLastReceivedTime();
-                        if (ts > options.getReceiveLimitMs()) {
-                            log.warn("[Sub][" + connection.getConnectionId() + "] No response from server");
-                            connection.reConnect(options.getConnectionDelayOnFailure());
-                        }
+                  // Check response
+                  if (options.isAutoReconnect()) {
+                    long ts = System.currentTimeMillis() - connection.getLastReceivedTime();
+                    if (ts > options.getReceiveLimitMs()) {
+                      log.warn(
+                          "[Sub][" + connection.getConnectionId() + "] No response from server in "+options.getReceiveLimitMs()/1000/60+"minutes");
+                      connection.reConnect(options.getConnectionDelayOnFailure());
                     }
+                  }
                 } else if (connection.getState() == ConnectionState.DELAY_CONNECT) {
-                    connection.reConnect();
+                  connection.reConnect();
                 } else if (connection.getState() == ConnectionState.CLOSED_ON_ERROR) {
-                    if (options.isAutoReconnect()) {
-                        connection.reConnect(options.getConnectionDelayOnFailure());
-                    }
+                  if (options.isAutoReconnect()) {
+                    connection.reConnect(options.getConnectionDelayOnFailure());
+                  }
                 }
-            });
-        }, t, t, TimeUnit.MILLISECONDS);
-        Runtime.getRuntime().addShutdownHook(new Thread(exec::shutdown));
-    }
+              });
+        },
+        t,
+        t,
+        TimeUnit.MILLISECONDS);
+    Runtime.getRuntime().addShutdownHook(new Thread(exec::shutdown));
+  }
 
-    void onConnectionCreated(WebSocketConnection connection) {
-        TIME_HELPER.addIfAbsent(connection);
-    }
+  void onConnectionCreated(WebSocketConnection connection) {
+    TIME_HELPER.addIfAbsent(connection);
+  }
 
-    void onClosedNormally(WebSocketConnection connection) {
-        TIME_HELPER.remove(connection);
-    }
+  void onClosedNormally(WebSocketConnection connection) {
+    TIME_HELPER.remove(connection);
+  }
 }

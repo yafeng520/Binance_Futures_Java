@@ -1,9 +1,6 @@
 package com.binance.client.model.enums;
 
-/**
- * buy, sell, both.
- */
-
+/** buy, sell, both. */
 public enum OrderSide {
   BUY("BUY"),
   SELL("SELL");
@@ -18,6 +15,4 @@ public enum OrderSide {
   public String toString() {
     return code;
   }
-
-
 }

@@ -2,22 +2,14 @@ package com.binance.client.model.enums;
 
 public enum DealRole {
 
-  /**
-   * TAKER,MAKER
-   */
-
+  /** TAKER,MAKER */
   TAKER("taker"),
-  MAKER("maker")
-  ;
+  MAKER("maker");
 
   private final String role;
 
   DealRole(String role) {
     this.role = role;
-  }
-
-  public String getRole() {
-    return role;
   }
 
   public static DealRole find(String role) {
@@ -27,5 +19,9 @@ public enum DealRole {
       }
     }
     return null;
+  }
+
+  public String getRole() {
+    return role;
   }
 }

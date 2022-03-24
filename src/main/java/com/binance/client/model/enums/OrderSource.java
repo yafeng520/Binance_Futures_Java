@@ -2,9 +2,7 @@ package com.binance.client.model.enums;
 
 import com.binance.client.impl.utils.EnumLookup;
 
-/**
- * sys, web, api, app.
- */
+/** sys, web, api, app. */
 public enum OrderSource {
   SYS("sys"),
   WEB("web"),
@@ -24,20 +22,19 @@ public enum OrderSource {
   SUPERMARGINFLSYS("super_margin_fl_sys"),
   SUPERMARGINFLMGT("super_margin_fl_mgt");
 
+  private static final EnumLookup<OrderSource> lookup = new EnumLookup<>(OrderSource.class);
   private final String code;
 
   OrderSource(String code) {
     this.code = code;
   }
 
+  public static OrderSource lookup(String name) {
+    return lookup.lookup(name);
+  }
+
   @Override
   public String toString() {
     return code;
-  }
-
-  private static final EnumLookup<OrderSource> lookup = new EnumLookup<>(OrderSource.class);
-
-  public static OrderSource lookup(String name) {
-    return lookup.lookup(name);
   }
 }

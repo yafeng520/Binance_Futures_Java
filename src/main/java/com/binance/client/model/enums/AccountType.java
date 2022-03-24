@@ -2,9 +2,7 @@ package com.binance.client.model.enums;
 
 import com.binance.client.impl.utils.EnumLookup;
 
-/**
- * SPOT, MARGIN, OTC, POINT, UNKNOWN.
- */
+/** SPOT, MARGIN, OTC, POINT, UNKNOWN. */
 public enum AccountType {
   SPOT("spot"),
   MARGIN("margin"),
@@ -12,25 +10,23 @@ public enum AccountType {
   POINT("point"),
   SUPER_MARGIN("super-margin"),
   MINEPOOL("minepool"),
-  ETF( "etf"),
-  AGENCY( "agency"),
+  ETF("etf"),
+  AGENCY("agency"),
   UNKNOWN("unknown");
 
+  private static final EnumLookup<AccountType> lookup = new EnumLookup<>(AccountType.class);
   private final String code;
 
   AccountType(String code) {
     this.code = code;
   }
 
-  @Override
-  public String toString() {
-    return code;
-  }
-
-  private static final EnumLookup<AccountType> lookup = new EnumLookup<>(AccountType.class);
-
   public static AccountType lookup(String name) {
     return lookup.lookup(name);
   }
 
+  @Override
+  public String toString() {
+    return code;
+  }
 }

@@ -3,24 +3,23 @@ package com.binance.client.model.enums;
 /**
  * @author : wangwanlu
  * @since : 2020/3/25, Wed
- **/
+ */
 public enum PositionSide {
+  BOTH("BOTH"),
 
-    BOTH("BOTH"),
+  SHORT("SHORT"),
 
-    SHORT("SHORT"),
+  LONG("LONG"),
+  ;
 
-    LONG("LONG"),
-    ;
+  private final String code;
 
-    private final String code;
+  PositionSide(String side) {
+    this.code = side;
+  }
 
-    PositionSide(String side) {
-        this.code = side;
-    }
-
-    @Override
-    public String toString() {
-        return code;
-    }
+  @Override
+  public String toString() {
+    return code;
+  }
 }

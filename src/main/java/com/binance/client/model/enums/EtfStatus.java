@@ -9,20 +9,19 @@ public enum EtfStatus {
   CREATION_SUSPEND("4"),
   REDEMPTION_SUSPEND("5");
 
+  private static final EnumLookup<EtfStatus> lookup = new EnumLookup<>(EtfStatus.class);
   private final String code;
 
   EtfStatus(String code) {
     this.code = code;
   }
 
+  public static EtfStatus lookup(String name) {
+    return lookup.lookup(name);
+  }
+
   @Override
   public String toString() {
     return code;
-  }
-
-  private static final EnumLookup<EtfStatus> lookup = new EnumLookup<>(EtfStatus.class);
-
-  public static EtfStatus lookup(String name) {
-    return lookup.lookup(name);
   }
 }

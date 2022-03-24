@@ -13,9 +13,7 @@ class ChannelParser {
     if (fields.length > 3) {
       type = fields[2];
     }
-    if (type.equals("kline")) {
-
-    }
+    if (type.equals("kline")) {}
   }
 
   public String getSymbol() {

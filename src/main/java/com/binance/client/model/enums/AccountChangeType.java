@@ -10,8 +10,6 @@ import com.binance.client.impl.utils.EnumLookup;
  * asset change(other)
  */
 public enum AccountChangeType {
-
-
   NEWORDER("order.place"),
 
   TRADE("order.match"),
@@ -34,23 +32,20 @@ public enum AccountChangeType {
 
   INVALID("INVALID");
 
+  private static final EnumLookup<AccountChangeType> lookup =
+      new EnumLookup<>(AccountChangeType.class);
   private final String code;
 
   AccountChangeType(String code) {
     this.code = code;
   }
 
-  @Override
-  public String toString() {
-    return code;
-  }
-
-  private static final EnumLookup<AccountChangeType> lookup = new EnumLookup<>(
-      AccountChangeType.class);
-
   public static AccountChangeType lookup(String name) {
     return lookup.lookup(name);
   }
 
-
+  @Override
+  public String toString() {
+    return code;
+  }
 }

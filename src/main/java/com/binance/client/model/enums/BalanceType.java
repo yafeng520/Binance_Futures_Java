@@ -10,23 +10,19 @@ public enum BalanceType {
   LOAN_AVAILABLE("loan-available"),
   TRANSFER_OUT_AVAILABLE("transfer-out-available");
 
-
-
+  private static final EnumLookup<BalanceType> lookup = new EnumLookup<>(BalanceType.class);
   private final String code;
 
   BalanceType(String code) {
     this.code = code;
   }
 
-  @Override
-  public String toString() {
-    return code;
-  }
-
-  private static final EnumLookup<BalanceType> lookup = new EnumLookup<>(BalanceType.class);
-
   public static BalanceType lookup(String name) {
     return lookup.lookup(name);
   }
 
+  @Override
+  public String toString() {
+    return code;
+  }
 }

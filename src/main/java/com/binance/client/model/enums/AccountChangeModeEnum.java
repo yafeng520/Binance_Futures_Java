@@ -1,18 +1,12 @@
 package com.binance.client.model.enums;
 
-/**
- * The balance mode used for subscribing the balance notification.
- */
+/** The balance mode used for subscribing the balance notification. */
 public enum AccountChangeModeEnum {
 
-  /**
-   * Subscribe balance change
-   */
+  /** Subscribe balance change */
   BALANCE("0"),
 
-  /**
-   * Subscribe TOTAL balance, total balance is the sum of available and frozen
-   */
+  /** Subscribe TOTAL balance, total balance is the sum of available and frozen */
   TOTAL("1");
 
   private final String code;

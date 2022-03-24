@@ -1,22 +1,15 @@
 package com.binance.client.model.enums;
 
-public enum  SymbolState {
+public enum SymbolState {
 
-  /**
-   * ONLINE, OFFLINE, SUSPEND.
-   */
+  /** ONLINE, OFFLINE, SUSPEND. */
   ONLINE("online"),
   OFFLINE("offline"),
-  SUSPEND("suspend")
-  ;
+  SUSPEND("suspend");
   private final String state;
 
   SymbolState(String state) {
     this.state = state;
-  }
-
-  public String getState() {
-    return state;
   }
 
   public static SymbolState find(String state) {
@@ -28,4 +21,7 @@ public enum  SymbolState {
     return null;
   }
 
+  public String getState() {
+    return state;
+  }
 }

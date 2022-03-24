@@ -1,7 +1,6 @@
 package com.binance.client.model.enums;
 
 public enum QuerySort {
-
   ASC("asc"),
   DESC("desc");
 

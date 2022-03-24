@@ -1,65 +1,69 @@
 package com.binance.client.model.user;
 
 import com.binance.client.constant.BinanceApiConstants;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import java.math.BigDecimal;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class PositionUpdate {
 
-    private String symbol;
+  private String symbol;
 
-    private BigDecimal amount;
+  private BigDecimal amount;
 
-    private BigDecimal entryPrice;
+  private BigDecimal entryPrice;
 
-    private BigDecimal preFee;
+  private BigDecimal preFee;
 
-    private BigDecimal unrealizedPnl;
+  private BigDecimal unrealizedPnl;
 
-    public String getSymbol() {
-        return symbol;
-    }
+  public String getSymbol() {
+    return symbol;
+  }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
+  public BigDecimal getAmount() {
+    return amount;
+  }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
+  public void setAmount(BigDecimal amount) {
+    this.amount = amount;
+  }
 
-    public BigDecimal getEntryPrice() {
-        return entryPrice;
-    }
+  public BigDecimal getEntryPrice() {
+    return entryPrice;
+  }
 
-    public void setEntryPrice(BigDecimal entryPrice) {
-        this.entryPrice = entryPrice;
-    }
+  public void setEntryPrice(BigDecimal entryPrice) {
+    this.entryPrice = entryPrice;
+  }
 
-    public BigDecimal getPreFee() {
-        return preFee;
-    }
+  public BigDecimal getPreFee() {
+    return preFee;
+  }
 
-    public void setPreFee(BigDecimal preFee) {
-        this.preFee = preFee;
-    }
+  public void setPreFee(BigDecimal preFee) {
+    this.preFee = preFee;
+  }
 
-    public BigDecimal getUnrealizedPnl() {
-        return unrealizedPnl;
-    }
+  public BigDecimal getUnrealizedPnl() {
+    return unrealizedPnl;
+  }
 
-    public void setUnrealizedPnl(BigDecimal unrealizedPnl) {
-        this.unrealizedPnl = unrealizedPnl;
-    }
+  public void setUnrealizedPnl(BigDecimal unrealizedPnl) {
+    this.unrealizedPnl = unrealizedPnl;
+  }
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE).append("symbol", symbol)
-                .append("amount", amount).append("entryPrice", entryPrice).append("preFee", preFee)
-                .append("unrealizedPnl", unrealizedPnl).toString();
-    }
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
+        .append("symbol", symbol)
+        .append("amount", amount)
+        .append("entryPrice", entryPrice)
+        .append("preFee", preFee)
+        .append("unrealizedPnl", unrealizedPnl)
+        .toString();
+  }
 }

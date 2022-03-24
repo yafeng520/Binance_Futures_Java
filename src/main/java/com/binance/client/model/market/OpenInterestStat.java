@@ -3,51 +3,56 @@ package com.binance.client.model.market;
 import java.math.BigDecimal;
 
 public class OpenInterestStat {
-    
-    private String symbol;
-    private BigDecimal sumOpenInterest;
-    private BigDecimal sumOpenInterestValue;
-    private Long timestamp;
 
-    public String getSymbol() {
-        return symbol;
-    }
+  private String symbol;
+  private BigDecimal sumOpenInterest;
+  private BigDecimal sumOpenInterestValue;
+  private Long timestamp;
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
+  public String getSymbol() {
+    return symbol;
+  }
 
-    public BigDecimal getSumOpenInterest() {
-        return sumOpenInterest;
-    }
+  public void setSymbol(String symbol) {
+    this.symbol = symbol;
+  }
 
-    public void setSumOpenInterest(BigDecimal sumOpenInterest) {
-        this.sumOpenInterest = sumOpenInterest;
-    }
+  public BigDecimal getSumOpenInterest() {
+    return sumOpenInterest;
+  }
 
-    public BigDecimal getSumOpenInterestValue() {
-        return sumOpenInterestValue;
-    }
+  public void setSumOpenInterest(BigDecimal sumOpenInterest) {
+    this.sumOpenInterest = sumOpenInterest;
+  }
 
-    public void setSumOpenInterestValue(BigDecimal sumOpenInterestValue) {
-        this.sumOpenInterestValue = sumOpenInterestValue;
-    }
+  public BigDecimal getSumOpenInterestValue() {
+    return sumOpenInterestValue;
+  }
 
-    public Long getTimestamp() {
-        return timestamp;
-    }
+  public void setSumOpenInterestValue(BigDecimal sumOpenInterestValue) {
+    this.sumOpenInterestValue = sumOpenInterestValue;
+  }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
+  public Long getTimestamp() {
+    return timestamp;
+  }
 
-    @Override
-    public String toString() {
-        return "OpenInterestStat{" +
-                "symbol='" + symbol + '\'' +
-                ", sumOpenInterest=" + sumOpenInterest +
-                ", sumOpenInterestValue=" + sumOpenInterestValue +
-                ", timestamp=" + timestamp +
-                '}';
-    }
+  public void setTimestamp(Long timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  @Override
+  public String toString() {
+    return "OpenInterestStat{"
+        + "symbol='"
+        + symbol
+        + '\''
+        + ", sumOpenInterest="
+        + sumOpenInterest
+        + ", sumOpenInterestValue="
+        + sumOpenInterestValue
+        + ", timestamp="
+        + timestamp
+        + '}';
+  }
 }
