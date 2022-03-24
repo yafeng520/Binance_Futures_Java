@@ -4,3 +4,5 @@ target
 src/test/java/com/binance/client/examples/constants/PrivateConfig.java
 src/main/java/strategy1/constants/PrivateConfig.java
 tmp
+logs
+out
