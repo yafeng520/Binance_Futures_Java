@@ -65,7 +65,6 @@ class RestApiRequestImpl {
   }
 
   private Request createRequestByGet(String address, UrlParamsBuilder builder) {
-    System.out.println(serverUrl);
     return createRequestByGet(serverUrl, address, builder);
   }
 
@@ -75,7 +74,6 @@ class RestApiRequestImpl {
 
   private Request createRequest(String url, String address, UrlParamsBuilder builder) {
     String requestUrl = url + address;
-    System.out.print(requestUrl);
     if (builder != null) {
       if (builder.hasPostParam()) {
         return new Request.Builder()
