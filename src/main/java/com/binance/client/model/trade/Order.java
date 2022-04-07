@@ -16,7 +16,7 @@ public class Order implements Serializable {
   @Id private Long orderId;
   @Id private String symbol;
 
-  /** 成交金额，即此订单总共买/卖了多少钱 */
+  /** cumulative quote(累计报价，即最终的成交金额)，即此订单总共买/卖了多少钱。0表示此订单为爆仓订单 */
   @Column private BigDecimal cumQuote;
   /** 成交量 */
   @Column(precision = Constants.QUANTITY_PRECISION, scale = Constants.QUANTITY_SCALE)
@@ -30,7 +30,9 @@ public class Order implements Serializable {
   @Transient private String clientOrderId;
   @Transient private BigDecimal price;
   @Transient private Boolean reduceOnly;
-
+  /**
+   * 值有BUY、SELL、LIQUIDATION（爆仓）
+   */
   @Column private String side;
 
   @Column private String positionSide;
