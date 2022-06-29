@@ -672,7 +672,7 @@ class RestApiRequestImpl {
                   o.setSymbol(jsonObj.getString("symbol"));
                   o.setTimeInForce(jsonObj.getString("timeInForce"));
                   o.setType(jsonObj.getString("type"));
-                  o.setUpdateTime(new Timestamp(jsonObj.getLong("updateTime")));
+                  o.setTime(new Timestamp(jsonObj.getLong("updateTime")));
                   o.setWorkingType(jsonObj.getString("workingType"));
                   listResult.add(o);
                 }
@@ -730,7 +730,7 @@ class RestApiRequestImpl {
           result.setSymbol(jsonWrapper.getString("symbol"));
           result.setTimeInForce(jsonWrapper.getString("timeInForce"));
           result.setType(jsonWrapper.getString("type"));
-          result.setUpdateTime(new Timestamp(jsonWrapper.getLong("updateTime")));
+          result.setTime(new Timestamp(jsonWrapper.getLong("updateTime")));
           result.setWorkingType(jsonWrapper.getString("workingType"));
           return result;
         });
@@ -864,7 +864,7 @@ class RestApiRequestImpl {
           result.setSymbol(jsonWrapper.getString("symbol"));
           result.setTimeInForce(jsonWrapper.getString("timeInForce"));
           result.setType(jsonWrapper.getString("type"));
-          result.setUpdateTime(new Timestamp(jsonWrapper.getLong("updateTime")));
+          result.setTime(new Timestamp(jsonWrapper.getLong("updateTime")));
           result.setWorkingType(jsonWrapper.getString("workingType"));
           return result;
         });
@@ -929,7 +929,7 @@ class RestApiRequestImpl {
                   o.setSymbol(jsonObj.getString("symbol"));
                   o.setTimeInForce(jsonObj.getString("timeInForce"));
                   o.setType(jsonObj.getString("type"));
-                  o.setUpdateTime(new Timestamp(jsonObj.getLong("updateTime")));
+                  o.setTime(new Timestamp(jsonObj.getLong("updateTime")));
                   o.setWorkingType(jsonObj.getString("workingType"));
                   listResult.add(o);
                 }
@@ -965,7 +965,7 @@ class RestApiRequestImpl {
           result.setSymbol(jsonWrapper.getString("symbol"));
           result.setTimeInForce(jsonWrapper.getString("timeInForce"));
           result.setType(jsonWrapper.getString("type"));
-          result.setUpdateTime(new Timestamp(jsonWrapper.getLong("updateTime")));
+          result.setTime(new Timestamp(jsonWrapper.getLong("updateTime")));
           result.setWorkingType(jsonWrapper.getString("workingType"));
           return result;
         });
@@ -998,7 +998,7 @@ class RestApiRequestImpl {
                 element.setSymbol(item.getString("symbol"));
                 element.setTimeInForce(item.getString("timeInForce"));
                 element.setType(item.getString("type"));
-                element.setUpdateTime(new Timestamp(item.getLong("updateTime")));
+                element.setTime(new Timestamp(item.getLong("updateTime")));
                 element.setWorkingType(item.getString("workingType"));
                 result.add(element);
               });
@@ -1040,7 +1040,7 @@ class RestApiRequestImpl {
                 element.setSymbol(item.getString("symbol"));
                 element.setTimeInForce(item.getString("timeInForce"));
                 element.setType(item.getString("type"));
-                element.setUpdateTime(new Timestamp(item.getLong("updateTime")));
+                element.setTime(new Timestamp(item.getLong("updateTime")));
                 element.setWorkingType(item.getString("workingType"));
                 result.add(element);
               });

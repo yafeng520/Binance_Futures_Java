@@ -41,7 +41,7 @@ public class Order implements Serializable {
 
   @Transient private String timeInForce;
   @Transient private String type;
-  @Column private Timestamp updateTime;
+  @Column private Timestamp time;
   @Transient private String workingType;
 
   public String getClientOrderId() {
@@ -164,12 +164,12 @@ public class Order implements Serializable {
     this.type = type;
   }
 
-  public Timestamp getUpdateTime() {
-    return updateTime;
+  public Timestamp getTime() {
+    return time;
   }
 
-  public void setUpdateTime(Timestamp updateTime) {
-    this.updateTime = updateTime;
+  public void setTime(Timestamp time) {
+    this.time = time;
   }
 
   public String getWorkingType() {
@@ -197,7 +197,7 @@ public class Order implements Serializable {
         .append("symbol", symbol)
         .append("timeInForce", timeInForce)
         .append("type", type)
-        .append("updateTime", updateTime)
+        .append("time", time)
         .append("workingType", workingType)
         .toString();
   }
